@@ -28,8 +28,8 @@ public class OfflineAuthModule extends Module {
     @Override
     public PacketHandlerCodec registerClientPacketHandlerCodec() {
         return PacketHandlerCodec.clientBuilder()
-                .priority(100)
-                .id("offline_auth_codec")
+                .setPriority(100)
+                .setId("offline_auth_codec")
                 .state(ProtocolState.LOGIN, PacketHandlerStateCodec.clientBuilder()
                         .inbound(ClientboundHelloPacket.class, this::handleClientboundHello)
                         .outbound(ServerboundHelloPacket.class, this::handleServerboundHello)
